@@ -23,22 +23,6 @@ import { motion, AnimatePresence } from "framer-motion"
 
 function Home() {
 
-    const sections = [
-
-        {
-            title: 'Software Development',
-            description: 'This section will be about myself any some cool details that makes me great.'
-        },
-
-        {
-            title: 'Lighting Design',
-            description: 'This section will be about myself any some cool details that makes me great.'
-        }
-    ]
-
-
-    console.log(sections);
-
     return (
         <motion.div
             initial={trans.initial}
@@ -49,35 +33,8 @@ function Home() {
         >
             <Box sx={sxHomeContainer} >
 
-                {sections.map((section) => (
-                    <>
-                        <p>{section.title}</p>
-                        <p>{section.description}</p>
-                    </>
-                ))}
-
                 <Box sx={sxHeroContent}>
-                    <Typography variant="h1" sx={sxHeroText}>Software Development</Typography>
-                    <Typography variant="body1">This section will be about myself any some cool details that makes me great.</Typography>
-                </Box>
-
-                <Box sx={sxHeroContent}>
-                    <Typography variant="h1" sx={sxHeroText}>Lighting Design</Typography>
-                    <Typography variant="body1">This section will be about myself any some cool details that makes me great.</Typography>
-                </Box>
-
-                <Box sx={sxHeroContent}>
-                    <Typography variant="h1" sx={sxHeroText}>Architecture</Typography>
-                    <Typography variant="body1">This section will be about myself any some cool details that makes me great.</Typography>
-                </Box>
-
-                <Box sx={sxHeroContent}>
-                    <Typography variant="h1" sx={sxHeroText}>Graphic Design</Typography>
-                    <Typography variant="body1">This section will be about myself any some cool details that makes me great.</Typography>
-                </Box>
-
-                <Box sx={sxHeroContent}>
-                    <Typography variant="h1" sx={sxHeroText}>Sketches</Typography>
+                    <Typography variant="bod1" sx={sxHeroText}>Celsius Tools</Typography>
                     <Typography variant="body1">This section will be about myself any some cool details that makes me great.</Typography>
                 </Box>
 

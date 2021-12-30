@@ -21,7 +21,8 @@ import {
   theme,
   sxAppContainer,
   sxHeaderContainer,
-  sxBodyContainer
+  sxBodyContainer,
+  sxCenterText,
 } from './App.style.js';
 
 // --- PAGE ANIMATIONS FRAMER MOTION --- //
@@ -41,17 +42,34 @@ function App() {
   return (
     <Box>
 
-      <ThemeProvider theme={theme}>
-        <Router>
+      {/* <ThemeProvider theme={theme}> */}
+      <Router>
 
-          <Box sx={sxAppContainer}>
+        <Box sx={sxAppContainer}>
+
+          <Switch>Ï
+
+            <NavBar />
+            <Header />
 
             <Box sx={sxHeaderContainer}>
-              <Header />
-              <NavBar />
+              <Route path="/" exact>
+                <Home />
+              </Route>
+
+              <Route path="/about" exact>
+                <About />
+              </Route>
             </Box>
 
-            <Box sx={sxBodyContainer}>
+            {/* If none of the other routes matched, we will show a 404. */}
+            <Route>
+              <Typography variant="h1" sx={sxCenterText}>404</Typography>
+            </Route>
+
+          </Switch>
+
+          {/* <Box sx={sxBodyContainer}>
 
               <AnimatePresence exitBeforeEnter initial={true}>
                 <Switch>
@@ -65,14 +83,14 @@ function App() {
                   </Route>
 
                 </Switch>
-              </AnimatePresence>
+              </AnimatePresence> */}
 
-            </Box>
+          {/* </Box> */}
 
-          </Box>
+        </Box>
 
-        </Router>
-      </ThemeProvider>
+      </Router>
+      {/* Ï</ThemeProvider> */}
 
     </Box>
   );

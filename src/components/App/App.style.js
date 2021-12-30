@@ -120,6 +120,13 @@ export const sxBodyContainer = {
     // gap: 1,
 }
 
+export const sxCenterText = {
+    textAlign: 'center',
+}
+
+
+
+
 
 
 
@@ -162,8 +169,8 @@ export const sxButtonBox = {
 
     // desktop sizing
     [theme.breakpoints.only('desktop')]: {
-        flexDirection: 'column',
-        alignItems: 'center',
+        flexDirection: 'row',
+        justifyContent: 'center',
     },
     // mobile sizing
     [theme.breakpoints.only('mobile')]: {
