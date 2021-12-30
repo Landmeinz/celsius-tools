@@ -202,14 +202,13 @@ export const sxNavLink = {
 
 // box properties that holds our movie title and our image together; 
 export const sxHomeContainer = {
-    // border: '1px solid red',
+    border: '1px solid red',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     my: 1,
     mx: 'auto',
     width: '90%',
-    borderRadius: 1,
     p: 2,
 
     color: 'info.main',
@@ -230,7 +229,6 @@ export const sxAboutContainer = {
     my: 1,
     mx: 'auto',
     width: '90%',
-    borderRadius: 1,
     p: 2,
     gap: 20,
 

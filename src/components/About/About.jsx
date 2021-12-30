@@ -48,7 +48,7 @@ function About() {
 
                 <Box sx={sxHeroContent}>
                     <Typography variant="h1" sx={sxHeroText}>
-                        Designing Fuels My Inspiration
+                        The Design Fuels My Inspiration
                     </Typography>
 
                     <Typography variant="h1" sx={sxHeroText}>

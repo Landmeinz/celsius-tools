@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios'
 
-
-
 // --- MUI --- //
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
@@ -25,6 +23,22 @@ import { motion, AnimatePresence } from "framer-motion"
 
 function Home() {
 
+    const sections = [
+
+        {
+            title: 'Software Development',
+            description: 'This section will be about myself any some cool details that makes me great.'
+        },
+
+        {
+            title: 'Lighting Design',
+            description: 'This section will be about myself any some cool details that makes me great.'
+        }
+    ]
+
+
+    console.log(sections);
+
     return (
         <motion.div
             initial={trans.initial}
@@ -34,6 +48,13 @@ function Home() {
             transition={trans.time}
         >
             <Box sx={sxHomeContainer} >
+
+                {sections.map((section) => (
+                    <>
+                        <p>{section.title}</p>
+                        <p>{section.description}</p>
+                    </>
+                ))}
 
                 <Box sx={sxHeroContent}>
                     <Typography variant="h1" sx={sxHeroText}>Software Development</Typography>
