@@ -1,4 +1,5 @@
 
+import React, { useEffect, useState} from 'react';
 import { useHistory } from 'react-router-dom';
 
 // --- MUI --- //
@@ -19,9 +20,10 @@ function Header() {
     const history = useHistory();
 
     return (
+
         <Box onClick={() => history.push('/')} sx={{cursor: 'pointer'}}>
 
-            <Typography sx={sxHeader}>Celsius Tools</Typography>
+            <Typography variant='h1' sx={sxHeader}>Celsius Tools</Typography>
 
         </Box>
     )

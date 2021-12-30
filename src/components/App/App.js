@@ -1,5 +1,7 @@
 
-import { HashRouter as Router, Route, Link, Switch, useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 // --- components --- //
 import Header from '../Header/Header.jsx';
@@ -28,70 +30,45 @@ import {
 // --- PAGE ANIMATIONS FRAMER MOTION --- //
 // import { motion, AnimatePresence } from "framer-motion"
 // import { AnimatePresence } from "framer-motion"
-import { motion, AnimatePresence } from "framer-motion"
+// import { motion, AnimatePresence } from "framer-motion"
 
 
 
 function App() {
 
+  const dispatch = useDispatch();
 
-  // const location = useLocation();
-  // console.log('this is the location', location.pathname);
+  useEffect(() => {
+    dispatch({ type: 'FETCH_REWARDS' });
+  }, [dispatch]);
 
 
   return (
     <Box>
+      <ThemeProvider theme={theme}>
+        <Router>
 
-      {/* <ThemeProvider theme={theme}> */}
-      <Router>
-
-        <Box sx={sxAppContainer}>
-
-          <Switch>Ï
-
-            <NavBar />
-            <Header />
+          <Box sx={sxAppContainer}>
 
             <Box sx={sxHeaderContainer}>
-              <Route path="/" exact>
+              <Header />
+              <NavBar />
+            </Box>
+
+            <Switch>Ï
+              <Route exact path="/" >
                 <Home />
               </Route>
 
-              <Route path="/about" exact>
+              <Route exact path="/about" >
                 <About />
               </Route>
-            </Box>
+            </Switch>
 
-            {/* If none of the other routes matched, we will show a 404. */}
-            <Route>
-              <Typography variant="h1" sx={sxCenterText}>404</Typography>
-            </Route>
+          </Box>
 
-          </Switch>
-
-          {/* <Box sx={sxBodyContainer}>
-
-              <AnimatePresence exitBeforeEnter initial={true}>
-                <Switch>
-
-                  <Route path="/" exact>
-                    <Home />
-                  </Route>
-
-                  <Route path="/about">
-                    <About />
-                  </Route>
-
-                </Switch>
-              </AnimatePresence> */}
-
-          {/* </Box> */}
-
-        </Box>
-
-      </Router>
-      {/* Ï</ThemeProvider> */}
-
+        </Router>
+      </ThemeProvider>
     </Box>
   );
 }

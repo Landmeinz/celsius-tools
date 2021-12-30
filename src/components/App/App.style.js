@@ -9,9 +9,9 @@
 // --- ANIMATIONS --- //
 
 export const trans = {
-    time:       { duration: .35 },
-    initial:    { rotate: -20, x: -600, opacity: -1.5 },
-    animate:    { rotate: 0, x: 10, opacity: 1 },
+    // time: { duration: .1 },
+    initial: { rotate: 0, y: -500, opacity: 0 },
+    animate: { rotate: 0, y: 0, opacity: 1 },
     // exit:       { rotate: -30 },
 }
 
@@ -22,10 +22,10 @@ import { createTheme } from '@mui/material/styles';
 export const theme = createTheme({
     palette: {
         primary: {
-            main: 'hsla(360, 70%, 50%, .9)',
+            main: 'hsla(280, 80%, 45%, .95)',
         },
         secondary: {
-            main: 'hsla(220, 50%, 50%, .9)',
+            main: 'hsla(220, 50%, 55%, .975)',
         },
         info: {
             main: 'hsla(0, 5%, 10%, .9)'
@@ -57,28 +57,14 @@ export const sxType = {
 }
 
 export const sxAppContainer = {
-
-    // shared properties
     // border: '1px solid red',
     display: 'flex',
     position: 'relative',
     mx: 'auto',
-    mt: 3,
+    flexDirection: 'column',
+    alignContent: 'center',
+    maxWidth: '100vw',
 
-    // desktop sizing
-    [theme.breakpoints.only('desktop')]: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        minWidth: 750,
-        maxWidth: '85%',
-    },
-    // mobile sizing
-    [theme.breakpoints.only('mobile')]: {
-        flexDirection: 'column',
-        alignItems: 'center',
-        minWidth: 380,
-        maxWidth: '95%',
-    },
 }
 
 
@@ -86,26 +72,15 @@ export const sxAppContainer = {
 export const sxHeaderContainer = {
 
     // shared properties
-    // border: '1px solid red',
+    // border: '1px solid blue',
     display: 'flex',
     flexDirection: 'column',
-    bgcolor: 'white',
+    gap: 2,
+    width: '100vw',
+    bgcolor: 'secondary.main',
     zIndex: 200,
-
-    // desktop sizing
-    [theme.breakpoints.only('desktop')]: {
-        position: 'sticky',
-        top: 30,
-        height: '100%',
-        width: 300,
-    },
-
-    // mobile sizing
-    [theme.breakpoints.only('mobile')]: {
-        position: 'static',
-        height: '100%',
-        width: '100%',
-    },
+    position: 'sticky',
+    top: 0,
 }
 
 export const sxBodyContainer = {
@@ -135,7 +110,7 @@ export const sxCenterText = {
 // box that contains the header; not sure why i took it out of the h1 tag; 
 export const sxHeader = {
     // border: '1px solid gray',
-    fontSize: 38,
+    // fontSize: 38,
     fontWeight: 700,
     lineHeight: .9,
     textAlign: 'center',
@@ -209,7 +184,7 @@ export const sxNavLink = {
 
 // box properties that holds our movie title and our image together; 
 export const sxHomeContainer = {
-    border: '1px solid red',
+    // border: '1px solid red',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -217,19 +192,66 @@ export const sxHomeContainer = {
     mx: 'auto',
     width: '90%',
     p: 2,
+    zIndex: 1,
 
     color: 'info.main',
 }; // sxCard
 
+export const sxCardContent = {
+    // border: '1px solid green',
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    gap: 2,
+}
+
+export const sxCoinCard = {
+    // border: '1px solid blue',
+    display: 'flex',
+    justifyContent: 'start',
+    alignItems: 'center',
+    // position: 'relative',
+    textAlign: 'center',
+    p: 1,
+    gap: 2,
+    width: 150,
+    height: 70,
+    borderRadius: 2,
+    boxShadow: 3,
+}
 
 
+// PROFILE PHOTOS properties being held in the left column
+export const sxPhotoBox = {
+    // border: '1px solid lightgray',
+    width: 60,
+    height: 60,
+    boxShadow: 1,
+    borderRadius: '50%',
+    mx: 'auto',
+    position: 'relative',
+    // cursor: 'pointer',
+    left: 0,
 
+    // '&:hover': {
+    //     // transform: 'scale(1.1)',
+    //     boxShadow: 5,
+    // }
+};
+
+export const sxRateText = {
+    // border: '1px solid black',
+
+    // position: 'relative',
+
+}
 
 
 // --- ABOUT PAGE --- //
 
 export const sxAboutContainer = {
-    border: '1px solid red',
+    // border: '1px solid red',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -238,23 +260,34 @@ export const sxAboutContainer = {
     width: '90%',
     p: 2,
     gap: 20,
+    zIndex: 1,
 
     color: 'info.main',
 }
 
 export const sxHeroContent = {
-    border: '1px solid green',
+    // border: '1px solid green',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
     textAlign: 'center',
     width: '100%',
     gap: 10,
-    mb: 2, 
+    mb: 2,
+}
+
+export const sxPopUpDetail = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    background: 'white',
+    position: 'fixed',
+    mx: 'auto',
+    zIndex: 200,
 }
 
 export const sxHeroText = {
-    
+
     fontWeight: 500,
     color: 'info.main',
 }
@@ -267,7 +300,7 @@ export const sxAboutBody = {
     textAlign: 'left',
     width: '100%',
     gap: 10,
-    mb: 2, 
+    mb: 2,
 }
 
 

@@ -1,4 +1,5 @@
 
+import React, { useEffect, useState} from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -39,23 +40,23 @@ function NavBar() {
                 history.push('/about')
                 break;
 
-            case 'github':
-                console.log('CLICKED on github button');
-                const githubUrl = ('https://github.com/Landmeinz')
-                window.open(githubUrl, '_blank', 'noopener')
-                break;
+            // case 'github':
+            //     console.log('CLICKED on github button');
+            //     const githubUrl = ('https://github.com/Landmeinz')
+            //     window.open(githubUrl, '_blank', 'noopener')
+            //     break;
 
-            case 'linkedin':
-                console.log('CLICKED on linkedin button');
-                const linkedInUrl = ('https://www.linkedin.com/in/ericmeinzer/')
-                window.open(linkedInUrl, '_blank', 'noopener')
-                break;
+            // case 'linkedin':
+            //     console.log('CLICKED on linkedin button');
+            //     const linkedInUrl = ('https://www.linkedin.com/in/ericmeinzer/')
+            //     window.open(linkedInUrl, '_blank', 'noopener')
+            //     break;
 
-            case 'resume':
-                console.log('CLICKED on resume button');
-                const resumeUrl = ('https://www.dropbox.com/s/ibwsmvjbnmhybxr/Eric.Meinzer.2021-12-05.pdf?dl=0')
-                window.open(resumeUrl, '_blank', 'noopener')
-                break;
+            // case 'resume':
+            //     console.log('CLICKED on resume button');
+            //     const resumeUrl = ('https://www.dropbox.com/s/ibwsmvjbnmhybxr/Eric.Meinzer.2021-12-05.pdf?dl=0')
+            //     window.open(resumeUrl, '_blank', 'noopener')
+            //     break;
 
             default:
                 break;
@@ -66,37 +67,17 @@ function NavBar() {
 
     return (
         <Box sx={sxButtonBox}>
-
-            <Tooltip title="Home" placement="left">
+            {/* <Tooltip title="Home" placement="left"> */}
                 <Box sx={sxNavLink} onClick={() => handleClick('home')}>
                     <CottageIcon fontSize='large' />
                 </Box>
-            </Tooltip>
+            {/* </Tooltip> */}
 
-            <Tooltip title="About" placement="left">
+            {/* <Tooltip title="About" placement="left"> */}
                 <Box sx={sxNavLink} onClick={() => handleClick('about')}>
                     <HelpIcon fontSize='large' />
                 </Box>
-            </Tooltip>
-
-            {/* <Tooltip title="GitHub" placement="left">
-                <Box sx={sxNavLink} onClick={() => handleClick('github')}>
-                    <GitHubIcon fontSize='large' />
-                </Box>
-            </Tooltip>
-
-            <Tooltip title="LinkedIn" placement="left">
-                <Box sx={sxNavLink} onClick={() => handleClick('linkedin')}>
-                    <LinkedInIcon fontSize='large' />
-                </Box>
-            </Tooltip> */}
-
-            {/* <Tooltip title="Resume" placement="left">
-                <Box sx={sxNavLink} onClick={() => handleClick('resume')}>
-                    <LibraryBooksIcon fontSize='large' />
-                </Box>
-            </Tooltip> */}
-
+            {/* </Tooltip> */}
         </Box >
     )
 }; // NavBar
