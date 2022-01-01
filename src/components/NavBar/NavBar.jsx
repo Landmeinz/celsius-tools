@@ -39,25 +39,7 @@ function NavBar() {
                 console.log('CLICKED on the about button');
                 history.push('/about')
                 break;
-
-            // case 'github':
-            //     console.log('CLICKED on github button');
-            //     const githubUrl = ('https://github.com/Landmeinz')
-            //     window.open(githubUrl, '_blank', 'noopener')
-            //     break;
-
-            // case 'linkedin':
-            //     console.log('CLICKED on linkedin button');
-            //     const linkedInUrl = ('https://www.linkedin.com/in/ericmeinzer/')
-            //     window.open(linkedInUrl, '_blank', 'noopener')
-            //     break;
-
-            // case 'resume':
-            //     console.log('CLICKED on resume button');
-            //     const resumeUrl = ('https://www.dropbox.com/s/ibwsmvjbnmhybxr/Eric.Meinzer.2021-12-05.pdf?dl=0')
-            //     window.open(resumeUrl, '_blank', 'noopener')
-            //     break;
-
+                
             default:
                 break;
         }

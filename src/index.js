@@ -28,14 +28,16 @@ function* rootSaga() {
 // GET rewards rates
 function* fetchRewards() {
     try {
-        const rewards = yield axios.get('https://wallet-api.staging.celsius.network/util/interest/rates');
-        console.log('--- index.js fetchRewards:', rewards.data);
+        const rewards = yield axios.get('api/rewards');
+        console.log('--- index.js GET fetchRewards:', rewards.data);
         yield put({ type: 'SET_REWARDS', payload: rewards.data });
 
     } catch {
         console.log('fetchRewards ERROR');
     }
-}; // fetchAllMovies
+}; // fetchRewards
+
+// https://wallet-api.staging.celsius.network/util/interest/rates
 
 
 
@@ -88,8 +90,8 @@ function* fetchRewards() {
 const rewardRates = (state = [], action) => {
     switch (action.type) {
         case 'SET_REWARDS':
-            console.log('this is the rewardRates action.payload', action.payload);
-            return action.payload;
+            console.log('this is the rewardRates action.payload', action.payload.interestRates);
+            return action.payload.interestRates;
 
         default:
             return state;

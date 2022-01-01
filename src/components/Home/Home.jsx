@@ -6,6 +6,7 @@ import axios from 'axios'
 
 // --- COMPONENTS --- //
 import RewardsChart from './RewardsChart.jsx';
+import ResultChart from './ResultChart.jsx';
 
 // --- MUI --- //
 import Paper from '@mui/material/Paper';
@@ -42,10 +43,10 @@ function Home() {
     const [detailWindowStatus, setDetailWindowStatus] = useState(false);
     console.log('--- current detailWindowStatus:', detailWindowStatus);
 
-    let rewardRates = useSelector(store => store.rewardRates);
-    let selectedCrypto = useSelector(store => store.selectedCrypto);
+    const rewardRates = useSelector(store => store.rewardRates);
+    const selectedCrypto = useSelector(store => store.selectedCrypto);
 
-    // console.log('--- HOME PAGE reward rates:', rewardRates);
+    console.log('--- HOME PAGE reward rates:', rewardRates);
     // console.log('--- HOME PAGE rewardRates.interestRates:', rewardRates.interestRates);
 
     // BUTTON to go back to the movie list or to the add movie form; 
@@ -105,7 +106,7 @@ function Home() {
 
                 <Box sx={sxCardContent}>
 
-                    {rewardRates.interestRates?.map(crypto => (
+                    {rewardRates?.map(crypto => (
 
                         <Box key={crypto.currency.id} sx={sxCoinCard} onClick={() => handleClick('detail', crypto)}>
                             <CardMedia sx={sxPhotoBox} component="img" image={crypto.currency.image_url} />
@@ -119,8 +120,10 @@ function Home() {
             </Box>
 
             <Box>
-                <RewardsChart />
+                {/* <RewardsChart rewardRates={rewardRates} /> */}
+                <ResultChart />
             </Box>
+
         </motion.div>
     );
 }

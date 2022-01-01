@@ -1,53 +1,26 @@
+const { json } = require('express');
 const express = require('express');
+// const pool = require('../modules/pool');
 const router = express.Router();
-const pool = require('../modules/pool')
+const axios = require('axios');
 
 
+// GET CELSIUS REWARDS // 
 
-
-// GET genres; include the movie id in the query so we can display their genres on the DOM; 
 router.get('/', (req, res) => {
-  // Add query to get all genres
+    // GET route code here
+    const url = 'https://wallet-api.staging.celsius.network/util/interest/rates';
 
-  const queryText = `
-    SELECT 	  *
-    FROM 	    "genres"
-    ORDER BY  "name"; ` ;
-
-  pool.query(queryText)
-    .then(result => {
-      console.log('the pool.query result GET genres', result.rows);
-      res.send(result.rows);
-    })
-    .catch(err => {
-      console.log('ERROR: Get all movies', err);
-      res.sendStatus(500)
-    })
-});
-
-
-// GET genres; include the movie id in the query so we can display their genres on the DOM; 
-router.get('/:id', (req, res) => {
-  // Add query to get all genres
-  const movieId = req.params.id
-
-  // REMEMBER to sanitize the the id by using $1; anything coming from the DOM needs to be sanitized on GET or POST; 
-  const queryText = `
-    SELECT 	"name", "movies_genres"."movie_id"
-    FROM 	  "genres"
-    JOIN 	  "movies_genres"
-    ON  	  "genres"."id" = "movies_genres"."genre_id"
-    WHERE 	"movies_genres"."movie_id" = $1;`;
-
-  pool.query(queryText, [movieId])
-    .then(result => {
-      console.log('the pool.query result GET genres', result.rows);
-      res.send(result.rows);
-    })
-    .catch(err => {
-      console.log('ERROR: Get all movies', err);
-      res.sendStatus(500)
-    })
+    axios
+        .get(url)
+        .then(response => {
+            console.log('--- response is', response);
+            res.send(response.data);
+        })
+        .catch(err => {
+            console.log('err in recipe GET', err);
+            res.sendStatus(500);
+        })
 });
 
 module.exports = router;

@@ -40,7 +40,16 @@ import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
 import Stack from '@mui/material/Stack';
 
-function RewardsChart() {
+
+function RewardsChart({rewardRates}) {
+
+    const dispatch = useDispatch();
+
+    // let rewardRates = useSelector(store => store.rewardRates);
+
+    useEffect(() => {
+        dispatch({ type: 'FETCH_REWARDS' });
+      }, [dispatch]);
 
     // const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
 
@@ -71,15 +80,37 @@ function RewardsChart() {
         },
     };
 
+    // console.log('RewardsChart rewardRates', rewardRates.interestRates);
+    const rewardRatesLength = rewardRates.interestRates.length;
+    console.log(rewardRatesLength);
+
     const data = {
         datasets: [
             {
-                label: 'A dataset',
-                data: Array.from({ length: 100 }, () => ({
-                    x: faker.datatype.number({ min: 0, max: 200 }),
-                    y: faker.datatype.number({ min: 0, max: 200 }),
-                })),
-                backgroundColor: 'rgba(255, 99, 132, 1)',
+                label: 'Crypto Reward Rates By %',
+                // data: Array.from({ length: 50}, () => ({
+                //     x: faker.datatype.number({ min: 0, max: 50 }),
+                //     y: faker.datatype.number({ min: 0, max: 20 }),
+                // })),
+                // data: [{
+                //     x: 1,
+                //     y: 3
+                // }, {
+                //     x: 2,
+                //     y: 4
+                // },{
+                //     x: 3,
+                //     y: 5
+                // },{
+                //     x: 4,
+                //     y: 4
+                // },{
+                //     x: 5,
+                //     y: 3
+                // }],
+                data: [10, 20, 30, 40, 50, 60, 70],
+
+                backgroundColor: 'darkblue',
             },
         ],
     };
@@ -87,17 +118,19 @@ function RewardsChart() {
 
     return (
 
-        <Scatter
-            data={data}
-            options={options}
+        <Box sx={{ width: 800, height: 600, display: 'flex', mx: 'auto', mt: 5, }}>
+            <Line
+                data={data}
+                options={options}
 
-            height={200}
-            width={500}
-        // options={{ maintainAspectRatio: false }}
+                height={200}
+                width={500}
+            // options={{ maintainAspectRatio: false }}
 
 
-        // {...props}
-        />
+            // {...props}
+            />
+        </Box>
 
     )
 
