@@ -28,9 +28,8 @@ import {
 } from './App.style.js';
 
 // --- PAGE ANIMATIONS FRAMER MOTION --- //
-// import { motion, AnimatePresence } from "framer-motion"
-// import { AnimatePresence } from "framer-motion"
-// import { motion, AnimatePresence } from "framer-motion"
+
+import { AnimatePresence } from "framer-motion"
 
 
 
@@ -40,6 +39,8 @@ function App() {
 
   useEffect(() => {
     dispatch({ type: 'FETCH_REWARDS' });
+    dispatch({ type: 'FETCH_COUNTRIES' });
+
   }, [dispatch]);
 
 

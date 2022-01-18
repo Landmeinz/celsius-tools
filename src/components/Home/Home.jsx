@@ -7,6 +7,7 @@ import axios from 'axios'
 // --- COMPONENTS --- //
 import RewardsChart from './RewardsChart.jsx';
 import ResultChart from './ResultChart.jsx';
+import Card from '../Card/Card.jsx';
 
 // --- MUI --- //
 import Paper from '@mui/material/Paper';
@@ -28,6 +29,7 @@ import {
     sxPopUpDetail,
     sxCoinCard,
     sxPhotoBox,
+    sxCount,
     sxRateText,
     sxCenterText,
 } from '../App/App.style';
@@ -41,12 +43,12 @@ function Home() {
     const dispatch = useDispatch();
 
     const [detailWindowStatus, setDetailWindowStatus] = useState(false);
-    console.log('--- current detailWindowStatus:', detailWindowStatus);
+    // console.log('--- current detailWindowStatus:', detailWindowStatus);
 
     const rewardRates = useSelector(store => store.rewardRates);
     const selectedCrypto = useSelector(store => store.selectedCrypto);
 
-    console.log('--- HOME PAGE reward rates:', rewardRates);
+    // console.log('--- HOME PAGE reward rates:', rewardRates);
     // console.log('--- HOME PAGE rewardRates.interestRates:', rewardRates.interestRates);
 
     // BUTTON to go back to the movie list or to the add movie form; 
@@ -82,6 +84,7 @@ function Home() {
 
                 <Box sx={sxHeroContent}>
                     <Typography variant="h2" sx={sxHeroText}>Celsius Reward Rates</Typography>
+                    <Typography variant="h6" sx={sxCount}>Supporting {rewardRates?.length} Coins / Tokens</Typography>
                 </Box>
 
 
@@ -105,22 +108,17 @@ function Home() {
 
 
                 <Box sx={sxCardContent}>
-
                     {rewardRates?.map(crypto => (
-
                         <Box key={crypto.currency.id} sx={sxCoinCard} onClick={() => handleClick('detail', crypto)}>
-                            <CardMedia sx={sxPhotoBox} component="img" image={crypto.currency.image_url} />
-                            <Stack sx={{ mx: 'auto' }}>
-                                <Typography sx={sxRateText} variant="body1">{crypto.coin}</Typography>
-                                <Typography sx={sxRateText} variant="h6">{(crypto.rate * 100).toFixed(2)}%</Typography>
-                            </Stack>
+                            <Card crypto={crypto}/>
                         </Box>
                     ))}
                 </Box>
+
             </Box>
 
             <Box>
-                {/* <RewardsChart rewardRates={rewardRates} /> */}
+                {/* <RewardsChart /> */}
                 <ResultChart />
             </Box>
 
@@ -179,3 +177,7 @@ export default Home;
     //     }; // switch
 
     // }; // handleClick
+
+
+
+    

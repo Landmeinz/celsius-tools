@@ -14,11 +14,11 @@ router.get('/', (req, res) => {
     axios
         .get(url)
         .then(response => {
-            console.log('--- response is', response);
+            // console.log('--- router.get/rewards response is', response);
             res.send(response.data);
         })
         .catch(err => {
-            console.log('err in recipe GET', err);
+            console.log('err in router.get/rewards', err);
             res.sendStatus(500);
         })
 });

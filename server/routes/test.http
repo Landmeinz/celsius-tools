@@ -1,0 +1,14 @@
+
+# # this works for testing https routes only
+
+# # GET https://wallet-api.staging.celsius.network/util/interest/rates
+
+
+# GET 'https://wallet-api.staging.celsius.network/util/countries'
+# "X-Cel-Partner-Token"="27ad54f93337ddf5ac9b3c3df7623d05"
+# "X-Cel-User-Token"="7b6e492f1a222026f8467ebeeaa3e559"
+
+# this one works
+# curl --location --request GET 'https://wallet-api.staging.celsius.network/util/countries' \
+# --header 'X-Cel-Partner-Token: 27ad54f93337ddf5ac9b3c3df7623d05' \
+# --header 'X-Cel-User-Token: 7b6e492f1a222026f8467ebeeaa3e559'

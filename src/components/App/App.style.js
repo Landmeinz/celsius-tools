@@ -215,7 +215,7 @@ export const sxCoinCard = {
     textAlign: 'center',
     p: 1,
     gap: 2,
-    width: 150,
+    width: 180,
     height: 70,
     borderRadius: 2,
     boxShadow: 3,
@@ -259,7 +259,6 @@ export const sxAboutContainer = {
     mx: 'auto',
     width: '90%',
     p: 2,
-    gap: 20,
     zIndex: 1,
 
     color: 'info.main',
@@ -272,7 +271,6 @@ export const sxHeroContent = {
     justifyContent: 'space-between',
     textAlign: 'center',
     width: '100%',
-    gap: 10,
     mb: 2,
 }
 
@@ -287,13 +285,13 @@ export const sxPopUpDetail = {
 }
 
 export const sxHeroText = {
-
+    // border: '1px solid red',
     fontWeight: 500,
     color: 'info.main',
 }
 
 export const sxAboutBody = {
-    border: '1px solid blue',
+    // border: '1px solid blue',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
@@ -301,6 +299,32 @@ export const sxAboutBody = {
     width: '100%',
     gap: 10,
     mb: 2,
+}
+
+export const sxEmojiBox = {
+    //  border: '1px solid lightgray',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 30,
+    height: 30,
+    boxShadow: 1,
+    borderRadius: '50%',
+    //  mx: 'auto',
+    position: 'relative',
+    // cursor: 'pointer',
+    left: 0,
+
+    // '&:hover': {
+    //     // transform: 'scale(1.1)',
+    //     boxShadow: 5,
+    // }
+}
+
+export const sxCount = {
+    // border: '1px solid red',
+    textAlign: 'center',
+    // my: -6,
 }
 
 

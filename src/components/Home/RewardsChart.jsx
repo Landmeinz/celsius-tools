@@ -20,6 +20,8 @@ import {
     Tooltip,
     Legend,
 } from 'chart.js';
+
+
 import { Line, Bar, Scatter } from 'react-chartjs-2';
 import faker from 'faker';
 
@@ -41,11 +43,11 @@ import CardMedia from '@mui/material/CardMedia';
 import Stack from '@mui/material/Stack';
 
 
-function RewardsChart({rewardRates}) {
+function RewardsChart() {
 
     const dispatch = useDispatch();
 
-    // let rewardRates = useSelector(store => store.rewardRates);
+    const rewardRates = useSelector(store => store.rewardRates);
 
     useEffect(() => {
         dispatch({ type: 'FETCH_REWARDS' });
@@ -81,7 +83,7 @@ function RewardsChart({rewardRates}) {
     };
 
     // console.log('RewardsChart rewardRates', rewardRates.interestRates);
-    const rewardRatesLength = rewardRates.interestRates.length;
+    const rewardRatesLength = rewardRates.length;
     console.log(rewardRatesLength);
 
     const data = {
